@@ -1,61 +1,42 @@
 package transport;
 
-/**
- * Clase vehicle amb els seus atributs
- */
-
+//Classe vehicle
 public class Vehicle {
 
     private double load;
     private double maxLoad;
 
-    /**
-     * @param maxLoad serà el màxim de pès que podrem carregar dins el vehicle creat
-     */
-
+    //maxLoad el màxim que pot carregar un vehicle
 
     public Vehicle(double maxLoad){
         this.maxLoad = maxLoad;
 
     }
 
-    /**
-     * El mètode getLoad
-     * @return la càrrega que du el vehicle en aquest moment
-     */
+   //getLoad retorna la càrrega del vehicle
 
     public double getLoad(){
         return load;
     }
 
-    /**
-     * El mètode getMaxload()
-     * @return el màxim de pès que podrem carregar dins el vehicle
-     */
-
+    //getMaxLoad torna el màxim que pot carregar
     public double getMaxLoad(){
         return maxLoad;
     }
 
-    /**
-     * @param weight = el pès de la caixa que estam afegint
-     * @return si la caixa hi entra o no
-     */
+    //El weight és el pes de la caixa
     public boolean addBox(double weight){
 
-
+        //Mostra el pes de la caixa i els pes que falta per fer el límit, també si no n'hi caben més
         if (load+weight <= maxLoad) {
-
             this.load = weight + this.load;
-            System.out.println("La carrega de " + weight + " Kg s'ha pogut afegir al vehicle");
-            System.out.println("Encara hi caben "+ (maxLoad-load));
-
+            System.out.println("El pes de la caixa és: " + weight + " Kg i s'ha pogut ficar al vehicle");
+            System.out.println("S'hi poden afegir "+ (maxLoad-load)+" Kg més.");
             return true;
-
         }
 
         else {
-            System.out.println("Error! Aquest paquet ja no hi cab");
+            System.out.println("Està al limit, no hi caben més paquets");
             return false;
         }
     }
